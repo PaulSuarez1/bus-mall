@@ -1,0 +1,1 @@
+As a business owner, I want to display potential products to my future buyers so that I may get a feel for what my market wants to buy.
