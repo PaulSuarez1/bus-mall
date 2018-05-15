@@ -3,8 +3,9 @@
 body *{
     background-color: lightgray;
     color: black;
-    border: darkred 1px dashed;
+    /* border: darkred 1px dashed; */
     margin: 10px;
+    padding: 5px;
 
 }
 
@@ -13,17 +14,17 @@ section {
     display: inline-block;
     margin: 10px auto;     /* why isn't this centering the section??? */
 
-
 }
 
 div {
-    height: 800px;
+    height: 616px;
     width: 75%;
     float: left;
 }
 
 img {
     width: 25%;
+    height: 40%;
     /* margin: 25px auto; */
     margin-top: 25px;
     margin-bottom: 25px;
@@ -42,4 +43,9 @@ h2 {
 #product-result {
     float: right;
     width: 20%
+}
+
+canvas {
+    width: 90%;
+    margin: 0px auto;
 }
