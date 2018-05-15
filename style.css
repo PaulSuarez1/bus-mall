@@ -1,10 +1,45 @@
-body {
+
+
+body *{
     background-color: lightgray;
-    color: gray;
+    color: black;
+    border: darkred 1px dashed;
+    margin: 10px;
+
+}
+
+section {
+    width: 90%;
+    display: inline-block;
+    margin: 10px auto;     /* why isn't this centering the section??? */
+
+
+}
+
+div {
+    height: 800px;
+    width: 75%;
+    float: left;
 }
 
 img {
-    width: 10%;
+    width: 25%;
+    /* margin: 25px auto; */
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+
+    
+}
+
+h2 {
     display: inline-block;
+    width: 25%;
     margin: 0 auto;
+}
+
+#product-result {
+    float: right;
+    width: 20%
 }

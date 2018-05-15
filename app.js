@@ -128,7 +128,7 @@ function sectionCallback(event) {
 function renderResults() {
   for (var i in allProducts) {
     var newLiEl = document.createElement('li');
-    newLiEl.textContent = allProducts[i].title + ' clicked : ' + allProducts[i].clicked + ' Times';
+    newLiEl.textContent = allProducts[i].title + ' clicked : ' + allProducts[i].clicked + ' times';
     resultUl.appendChild(newLiEl);
   }
 }
