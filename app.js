@@ -150,13 +150,5 @@ function checkTotalClicks() {
   }
 }
 
-// Side bar with totals
-//==========================================
-
-
-
-
-
-
 randomProduct();
 console.table(allProducts);
