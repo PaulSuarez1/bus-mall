@@ -2,3 +2,9 @@ body {
     background-color: lightgray;
     color: gray;
 }
+
+img {
+    width: 10%;
+    display: inline-block;
+    margin: 0 auto;
+}
