@@ -142,11 +142,6 @@ function checkTotalClicks() {
     // imgEl1.removeEventListener('click', img1Callback);
     // imgEl2.removeEventListener('click', img2Callback);
     // imgEl3.removeEventListener('click', img3Callback);
-
-
-    // imgEl1.removeEventListener('click', img1Callback);
-    // imgEl1.id = productsIndex1
-
   }
 }
 
