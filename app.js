@@ -69,6 +69,7 @@ imgEl3.addEventListener('click', function() {
   
 });
 
+// Side bar with totals
 //==========================================
 
 
