@@ -17,7 +17,9 @@ var productsIndex1 = 0;
 var productsIndex2 = 0;
 var productsIndex3 = 0;
 
-var totalClicks = 0
+var totalClicks = 0;
+
+var productChart;
 
 // Onject constructor:
 //==========================================
@@ -90,7 +92,7 @@ function sectionCallback(event) {
   console.log(event);
   console.log(event.target);
   if (event.target.id) {
-
+    updateChartArray()
     totalClicks++;
     allProducts[event.target.id].clicked++;
     randomProduct();
@@ -128,7 +130,7 @@ function sectionCallback(event) {
 function renderResults() {
   for (var i in allProducts) {
     var newLiEl = document.createElement('li');
-    newLiEl.textContent = allProducts[i].title + ' clicked : ' + allProducts[i].clicked + ' Times';
+    newLiEl.textContent = allProducts[i].title + ' clicked : ' + allProducts[i].clicked + ' times';
     resultUl.appendChild(newLiEl);
   }
 }
@@ -136,14 +138,112 @@ function renderResults() {
 function checkTotalClicks() {
   if (totalClicks === 25) {
     renderResults();
+   
 
 
     sectionEl.removeEventListener('click', sectionCallback);
     // imgEl1.removeEventListener('click', img1Callback);
     // imgEl2.removeEventListener('click', img2Callback);
     // imgEl3.removeEventListener('click', img3Callback);
+    drawChart();
   }
 }
 
 randomProduct();
 console.table(allProducts);
+
+var votes = [];
+var names = [];
+
+function updateChartArray(){
+  for(var i = 0; i < allProducts.length; i++) {
+    names[i] = allProducts[i].title;
+    votes[i] = allProducts[i].clicked;
+  }
+}
+
+var data = {
+  labels: names, 
+  datasets: [{
+    data: votes, 
+    backgroundColor: [
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16)
+    ],
+    hoverBackgroundColor: [
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16),
+      "#"+((1<<24)*Math.random()|0).toString(16)
+    ]
+  }]
+};
+
+function drawChart() {
+  var ctx = document.getElementById('chartCanvas').getContext('2d');
+  productChart = new Chart(ctx, {
+    type: 'pie',
+    data: data,
+    options: {
+      responsive: false,
+      animation: {
+        duration: 1000,
+        easing: 'easeOutBounce'
+      }
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          max: 10,
+          min: 0,
+          stepSize: 1.0
+        }
+      }]
+    }
+  });
+}
+
