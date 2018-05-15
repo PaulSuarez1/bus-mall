@@ -6,7 +6,7 @@ var allProducts = [];
 var imgEl1 = document.getElementById('product1');
 var imgEl2 = document.getElementById('product2');
 var imgEl3 = document.getElementById('product3');
-var h2El1 = document.getElementById('tile1');
+var h2El1 = document.getElementById('title1');
 var h2El2 = document.getElementById('title2');
 var h2El3 = document.getElementById('title3');
 
@@ -40,6 +40,8 @@ function randomProduct() {
     productsIndex1 = Math.floor(Math.random() * allProducts.length);
     imgEl1.src = allProducts[productsIndex1].img;
     h2El1 = allProducts[productsIndex1].title;
+    // allProducts[productsIndex1].title.appendChild(h2El1);
+    
 
     productsIndex2 = Math.floor(Math.random() * allProducts.length);
     imgEl2.src = allProducts[productsIndex2].img;
@@ -65,7 +67,7 @@ imgEl3.addEventListener('click', function() {
     allProducts[productsIndex3].clicked++;
     randomProduct();
   
-  });
+});
 
 //==========================================
 
