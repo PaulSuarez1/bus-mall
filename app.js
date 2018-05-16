@@ -1,6 +1,8 @@
 'use strict';
 // Global Variables:
 //==========================================
+
+
 var allProducts = [];
 
 var imgEl1 = document.getElementById('product1');
@@ -21,16 +23,9 @@ var totalClicks = 0;
 
 var productChart;
 
-// Onject constructor:
-//==========================================
-function Products(img, title) {
-  this.img = img;
-  this.title = title;
-  this.clicked = 0;
-
-  allProducts.push(this);
-}
-
+if (localStorage.allProducts) {
+  allProducts = JSON.parse(localStorage.getItem('allProducts'));
+} else {
 // New objects:
 //==========================================
 new Products('img/bag.jpg', 'Bag thing');
@@ -53,6 +48,17 @@ new Products('img/unicorn.jpg', 'It is magic');
 new Products('img/usb.gif', 'Squirm');
 new Products('img/water-can.jpg', 'You can even drink it');
 new Products('img/wine-glass.jpg', 'Beer is better but whatever');
+}
+
+// Onject constructor:
+//==========================================
+function Products(img, title) {
+  this.img = img;
+  this.title = title;
+  this.clicked = 0;
+
+  allProducts.push(this);
+}
 
 // Event listener for randominzing pictures on click
 //==========================================
@@ -138,6 +144,8 @@ function renderResults() {
 function checkTotalClicks() {
   if (totalClicks === 25) {
     renderResults();
+
+    localStorage.setItem('allProducts', JSON.stringify(allProducts));
    
 
 
