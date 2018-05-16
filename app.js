@@ -234,7 +234,7 @@ var data = {
 function drawChart() {
   var ctx = document.getElementById('chartCanvas').getContext('2d');
   productChart = new Chart(ctx, {
-    type: 'pie',
+    type: 'bar',
     data: data,
     options: {
       responsive: false,
